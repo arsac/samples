@@ -1,0 +1,75 @@
+<?php
+/**
+ * Magento
+ *
+ * NOTICE OF LICENSE
+ *
+ * This source file is subject to the Academic Free License (AFL 3.0)
+ * that is bundled with this package in the file LICENSE_AFL.txt.
+ * It is also available through the world-wide-web at this URL:
+ * http://opensource.org/licenses/afl-3.0.php
+ * If you did not receive a copy of the license and are unable to
+ * obtain it through the world-wide-web, please send an email
+ * to license@magentocommerce.com so we can send you a copy immediately.
+ *
+ * DISCLAIMER
+ *
+ * Do not edit or add to this file if you wish to upgrade Magento to newer
+ * versions in the future. If you wish to customize Magento for your
+ * needs please refer to http://www.magentocommerce.com for more information.
+ *
+ * @category    design
+ * @package     base_default
+ * @copyright   Copyright (c) 2013 Magento Inc. (http://www.magentocommerce.com)
+ * @license     http://opensource.org/licenses/afl-3.0.php  Academic Free License (AFL 3.0)
+ */
+?>
+<div id="mini_login_form_block" class="block block-login collapse ">
+   <div class="container">
+   		<div class="row">
+	   		<div class="form-col col-md-10">
+	   			<div class="row">
+	   				<div class="col-md-18">
+				    <form id="mini_login_form" class="form-horizontal" action="<?php echo $this->getPostActionUrl() ?>" method="post" role="form">
+				        
+				        	<div class="form-group">
+				            	<label class="col-sm-6 control-label serif" for="mini-login"><?php echo $this->__('Your Email') ?></label>
+				            	<div class="col-sm-18">
+				            		<input type="text" name="login[username]" id="mini-login" class="input-text form-control" />
+				            	</div>
+				        	</div>
+				        	
+				            <div class="form-group">
+				            	<label class="col-sm-6 control-label serif" for="mini-password"><?php echo $this->__('Password') ?></label>
+								<div class="col-sm-18">
+				            		<input type="password" name="login[password]" id="mini-password" class="input-text form-control" />
+								</div>
+				            </div>
+				            
+				            <div class="form-group">
+				            	<div class="col-sm-offset-6 col-sm-18">
+				                	<p>
+				                		<button type="submit" class="button btn-block"><?php echo $this->__('Login') ?></button>
+				                	</p>
+				                	<p class="text-center no-margin">
+				                		<u><a href="<?php echo $this->getForgotPasswordUrl() ?>" class="text-muted serif-em"><?php echo $this->__('Forgot Your Password?') ?></a></u>
+				                	</p>
+				            	</div>
+				            </div>
+				            
+				            
+				        
+				    </form>
+	   				</div>
+				  </div>
+	   		</div>
+	   		<div class="col-sm-offset-2 col-md-12 serif register-col">
+	   			<a class="close btn btn-xs btn-default" data-toggle="collapse" data-target="#mini_login_form_block" href="Javascript:void(0);">&times;</a>
+	   			
+	   			<h5 class="no-margin"><?php echo $this->__('Don\'t Have an Account?');?></h5>
+	   			<p><?php echo $this->__('Create one now for faster checkout and saved order history.');?></p>
+	   			<p><a href="<?php echo $this->getCreateAccountUrl() ?>" class="btn btn-default btn-register col-sm-10"><?php echo $this->__('Register');?></a></p>
+	   		</div>
+	   	</div>
+   </div>
+</div>
