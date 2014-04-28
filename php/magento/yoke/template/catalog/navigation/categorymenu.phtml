@@ -1,0 +1,26 @@
+<?php
+    $currentCat = Mage::registry('current_category');
+
+    if ( $currentCat->getParentId() == Mage::app()->getStore()->getRootCategoryId() )
+    {
+        // current category is a toplevel category
+        $loadCategory = $currentCat;
+    }
+    else
+    {
+        // current category is a sub-(or subsub-, etc...)category of a toplevel category
+        // load the parent category of the current category
+        $loadCategory = Mage::getModel('catalog/category')->load($currentCat->getParentId());
+        // @TODO enhance for more nested category levels to display sub-categories
+    }    
+    $subCategories = explode(',', $loadCategory->getChildren());
+    ?>
+    
+	<ul class="subcategories">
+    <?php foreach ( $subCategories as $subCategoryId ):?>
+    	<?php $cat = Mage::getModel('catalog/category')->load($subCategoryId); ?>
+    	<?php if($cat->getIsActive()): ?>
+    		<li class="<?php if($currentCat->getId() == $subCategoryId):?>active<?php endif;?>"><a href="<?php echo $cat->getURL();?>"><?php echo $cat->getName();?></a></li>
+    	<?php endif;?>
+    <?php endforeach;?>
+	</ul>
